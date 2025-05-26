@@ -1,0 +1,46 @@
+import random
+# number of rounds 
+rounds=5
+print(f"you will play {rounds} rounds.....LETS BEGIN!!!")
+
+for round_num in range(1,rounds+1):
+    print(f"Round {round_num}")
+
+    computer=random.choice([1,0,-1])
+    youstart=input("ENTER YOUR CHOICE from (rock,paper,scissor):").lower() #.lower() is used to handle user input gracefully whn it is case sensative .it will not throw an error if it is Paper insted of paper 
+    youdict={
+        "rock":1,
+        "paper":0,
+        "sissor":-1
+    }
+    reversedict={
+        1:"rock",
+        0:"paper",
+        -1:"sissor"
+    }
+
+    if youstart not in youdict:
+        print("INVALID CHOICE !!!")
+        continue
+    you=youdict[youstart]
+
+    print(f"you choose {reversedict[you]}\nComputer choose {reversedict[computer]}")
+    if(computer==you):
+        print("MATCH DRAW!")
+    else:
+        if(computer ==1 and you ==0):
+            print("YOU WON!!!")
+        elif(computer==1 and you ==-1):
+            print("YOU LOOSE!!!")
+        elif(computer ==0 and you==-1):
+            print("YOU WON!!!")
+        elif(computer==0 and you ==1):
+            print("YOU LOOSE!!!")
+        elif(computer==-1 and you ==1):
+            print("YOU WON!!!")
+        elif(computer==-1 and you ==0):
+            print("YOU LOOSE!!!")
+        else:
+            print("SOMETHING WENT WRONG!!!")
+
+print("\n GAME OVER !THANKYOU FOR PLAYING!!!!!")
